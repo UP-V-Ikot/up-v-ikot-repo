@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -20,14 +21,21 @@ public class GPSLocation : MonoBehaviour
 
     public GameObject arPanel;
     // Coords hardcoded for now; set to your location area to test
-    // Palma Coordinates:
-    // Top = 14.65390; Bottom = 14.65341; Left = 121.06956; Right = 121.07019
     // Ryo Home Coordinates:
     // Top = 14.63462; Bottom = 14.63416; Left = 121.07305; Right = 121.07340
-    public const double Top = 14.65390;
-    public const double Bottom = 14.65341;
-    public const double Left = 121.06956;
-    public const double Right = 121.07019;
+    // public const double Top = 14.65390; 
+    // public const double Bottom = 14.65341;
+    // public const double Left = 121.06956;
+    // public const double Right = 121.07019;
+
+    // Tuple Items: Top, Bottom, Left, Right, POIName
+    public Tuple<double, double, double, double, string>[] coordinates = {
+        Tuple.Create(14.65659, 14.65613, 121.07186, 121.07248, "Malcolm Hall"),
+        Tuple.Create(14.65390, 14.65341, 121.06956, 121.07019, "Palma Hall"),
+        Tuple.Create(14.65660, 14.65608, 121.06910, 121.07012, "Melchor Hall"),
+        Tuple.Create(14.65513, 14.65472, 121.06494, 121.06525, "Quezon Hall"),
+        Tuple.Create(14.65508, 14.65477, 121.06433, 121.06490, "Oblation Statue"),
+    };
 
     // Start is called before the first frame update
     void Start()
@@ -84,19 +92,21 @@ public class GPSLocation : MonoBehaviour
             LocationController.latitude = Input.location.lastData.latitude;
             LocationController.longitude = Input.location.lastData.longitude;
 
-            // Insert accept area conditional here
-            if ((LocationController.latitude < Top && LocationController.latitude > Bottom) && 
-                (LocationController.longitude > Left && LocationController.longitude < Right)) 
-            {
-                LocationController.poiName = "Palma Hall";
-                arPanel.SetActive(true);
-                panelStatus.text = "Active";
+            foreach(Tuple<double, double, double, double, string> coordinate in coordinates) {
+                if ((LocationController.latitude < coordinate.Item1 && LocationController.latitude > coordinate.Item2) && 
+                (LocationController.longitude > coordinate.Item3 && LocationController.longitude < coordinate.Item4)) 
+                {
+                    LocationController.poiName = coordinate.Item5;
+                    arPanel.SetActive(true);
+                    panelStatus.text = "Active";
+                    break;
+                }
+                else {
+                    arPanel.SetActive(false);
+                    panelStatus.text = "Inactive";
+                }
             }
-            else {
-                LocationController.poiName = "Unknown";
-                arPanel.SetActive(false);
-                panelStatus.text = "Inactive";
-            }
+            
 
             latitudeValue.text = Input.location.lastData.latitude.ToString();
             longitudeValue.text = Input.location.lastData.longitude.ToString();

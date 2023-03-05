@@ -23,10 +23,6 @@ public class GPSLocation : MonoBehaviour
     // Coords hardcoded for now; set to your location area to test
     // Ryo Home Coordinates:
     // Top = 14.63462; Bottom = 14.63416; Left = 121.07305; Right = 121.07340
-    // public const double Top = 14.65390; 
-    // public const double Bottom = 14.65341;
-    // public const double Left = 121.06956;
-    // public const double Right = 121.07019;
 
     // Tuple Items: Top, Bottom, Left, Right, POIName
     public Tuple<double, double, double, double, string>[] coordinates = {
@@ -54,10 +50,12 @@ public class GPSLocation : MonoBehaviour
         StartCoroutine(GPSLoc());
     }
 
-    public void LoadNextScene() {
-        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+    public void LoadMarkerlessARScene() {
+        SceneManager.LoadScene(1);
+    }
 
-        SceneManager.LoadScene(currentSceneIndex + 1);
+    public void LoadMarkerARScene() {
+        SceneManager.LoadScene(2);
     }
 
     IEnumerator GPSLoc() {

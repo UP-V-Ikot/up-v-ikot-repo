@@ -23,4 +23,8 @@ public class ARNavigation : MonoBehaviour
     public void ExitButtonClick(GameObject activePanel) {
         activePanel.SetActive(false);
     }
+
+    public void BuildingButtonClick() {
+        SceneManager.LoadScene(3);
+    }
 }

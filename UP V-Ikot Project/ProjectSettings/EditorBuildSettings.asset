@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MarkerAR.unity
     guid: f9c862173db49e443aeed1b4c00c1c7d
+  - enabled: 1
+    path: Assets/Scenes/BuildingScene.unity
+    guid: 8aca3c8df358ec34eb84841269ec731d
   m_configObjects: {}

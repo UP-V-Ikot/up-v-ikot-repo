@@ -16,7 +16,7 @@ public class ARNavigation : MonoBehaviour
 
     // Goes back to the original main menu screen
     public void BackButtonClick() {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("GPSLocation");
     }
 
     // Closes the active panel in the scene
@@ -25,6 +25,6 @@ public class ARNavigation : MonoBehaviour
     }
 
     public void BuildingButtonClick() {
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene("BuildingScene");
     }
 }

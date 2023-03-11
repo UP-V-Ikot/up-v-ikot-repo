@@ -11,15 +11,11 @@ public class GPSLocation : MonoBehaviour
     public Text GPSStatus;
     public Text latitudeValue;
     public Text longitudeValue;
-    public Text altitudeValue;
-    public Text horizontalAccuracyValue;
-    public Text timestampValue;
     public Text panelStatus;
-
-    // To keep script running in different scenes
-    public static GPSLocation instance;
+    public Text poiName;
 
     public GameObject arPanel;
+    public GameObject minimizedArPanel;
     // Coords hardcoded for now; set to your location area to test
     // Ryo Home Coordinates:
     // Top = 14.63462; Bottom = 14.63416; Left = 121.07305; Right = 121.07340
@@ -35,27 +31,23 @@ public class GPSLocation : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {   
-        if (instance != null) {
-            Destroy(gameObject);
-        }
-        else {
-            instance = this;
-        }
-        DontDestroyOnLoad(gameObject);
-
-        // Initially set to inactive
-        arPanel.SetActive(false);
+    { 
         panelStatus.text = "Inactive";
         StartCoroutine(GPSLoc());
     }
 
     public void LoadMarkerlessARScene() {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene("MarkerlessAR");
     }
 
     public void LoadMarkerARScene() {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene("MarkerAR");
+    }
+
+    public void MinimizeARPanel() {
+        arPanel.SetActive(false);
+        minimizedArPanel.SetActive(true);
+        poiName.text = LocationController.poiName;
     }
 
     IEnumerator GPSLoc() {
@@ -86,6 +78,7 @@ public class GPSLocation : MonoBehaviour
     } 
 
     private void UpdateGPSData() {
+        bool inBounds = false;
         if (Input.location.status == LocationServiceStatus.Running) {
             LocationController.latitude = Input.location.lastData.latitude;
             LocationController.longitude = Input.location.lastData.longitude;
@@ -95,22 +88,29 @@ public class GPSLocation : MonoBehaviour
                 (LocationController.longitude > coordinate.Item3 && LocationController.longitude < coordinate.Item4)) 
                 {
                     LocationController.poiName = coordinate.Item5;
-                    arPanel.SetActive(true);
+                    if (!minimizedArPanel.activeSelf) {
+                        arPanel.SetActive(true);
+                    }
+                    inBounds = true;
                     panelStatus.text = "Active";
                     break;
                 }
-                else {
-                    arPanel.SetActive(false);
-                    panelStatus.text = "Inactive";
+            }
+
+            if (!inBounds) {
+                if (arPanel.activeSelf) {
+                    arPanel.SetActive(false); 
                 }
+
+                if (minimizedArPanel.activeSelf) {
+                    minimizedArPanel.SetActive(false);
+                }
+                panelStatus.text = "Inactive";
             }
             
 
             latitudeValue.text = Input.location.lastData.latitude.ToString();
             longitudeValue.text = Input.location.lastData.longitude.ToString();
-            altitudeValue.text = Input.location.lastData.altitude.ToString();
-            horizontalAccuracyValue.text = Input.location.lastData.horizontalAccuracy.ToString();
-            timestampValue.text = Input.location.lastData.timestamp.ToString();
 
         }
         else {

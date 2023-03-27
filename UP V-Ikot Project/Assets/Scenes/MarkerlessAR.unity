@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731749, g: 0.13414757, b: 0.1210787, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -193,16 +193,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'History Panel:
-
-
-    Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit. Proin et nibh mi. Vestibulum risus quam, mollis eu risus id, ornare mattis
-    urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-    cubilia curae; Aliquam efficitur lectus ante, non placerat nibh faucibus et.
-    Aenean vel laoreet urna, in lobortis ipsum. Maecenas laoreet, lorem at condimentum
-    commodo, felis urna cursus quam, sit amet vestibulum tellus lectus nec lectus.
-    Sed odio est, suscipit vitae neque auctor, bibendum sagittis ipsum.'
+  m_Text: "History Panel:\n\n349+HW2, Osme\xF1a Avenue, Diliman, Quezon City, 1101
+    Metro Manila\r\n\r\nMelchor Hall is a building located in the University of the
+    Philippines Diliman campus in Quezon City, Philippines. It serves as the main
+    building of the College of Engineering, one of the constituent colleges of the
+    university.\r\n\r\nThe construction of Melchor Hall began in 1951 and was completed
+    in 1953. The building was named after Juan F. Melchor, a former professor and
+    dean of the College of Engineering. It was designed by the Filipino architect
+    Cesar Concio, who also designed other iconic buildings in the UP Diliman campus
+    such as the UP Theater and the University Library.\r\n\r\nMelchor Hall has served
+    as the main hub for engineering education and research in the Philippines for
+    more than half a century. It houses classrooms, laboratories, workshops, and
+    offices of the various departments and institutes within the College of Engineering,
+    including the Department of Chemical Engineering, the Department of Civil Engineering,
+    the Department of Computer Science, the Department of Electrical and Electronics
+    Engineering, the Department of Geodetic Engineering, and the Institute of Civil
+    Engineering.\r\n"
 --- !u!222 &11525670
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1161,13 +1167,44 @@ MonoBehaviour:
   m_Text: 'Office Panel:
 
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit. Proin et nibh mi. Vestibulum risus quam, mollis eu risus id, ornare mattis
-    urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-    cubilia curae; Aliquam efficitur lectus ante, non placerat nibh faucibus et.
-    Aenean vel laoreet urna, in lobortis ipsum. Maecenas laoreet, lorem at condimentum
-    commodo, felis urna cursus quam, sit amet vestibulum tellus lectus nec lectus.
-    Sed odio est, suscipit vitae neque auctor, bibendum sagittis ipsum.'
+    College of Engineering Dean''s Office - Room 101
+
+    Department
+    of Chemical Engineering - Rooms 209, 213, 219, 221, 225, 227, 231, 233, 235,
+    237, 240, and 242
+
+    Department of Civil Engineering - Rooms 308, 312, 316,
+    320, 324, 328, 332, 336, 340, and 344
+
+    Department of Computer Science -
+    Rooms 207, 208, 210, 211, 212, and 214
+
+    Department of Electrical and Electronics
+    Engineering - Rooms 315, 318, 321, 322, 324, 326, 328, 330, 332, 334, 336, 338,
+    and 340
+
+    Department of Geodetic Engineering - Rooms 210, 214, 218, and 220
+
+    Institute
+    of Civil Engineering - Rooms 304, 306, 307, and 309
+
+    National Engineering
+    Center - Room 204
+
+    Engineering Research and Development for Technology -
+    Room 204
+
+    Office of Counseling and Guidance - Room 207
+
+    Student Records
+    and Admission Office - Room 203
+
+    University Library (Engineering Section)
+    - Room 303
+
+    Engineering Student Council - Room 104
+
+'
 --- !u!222 &660401459
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3045,13 +3082,96 @@ MonoBehaviour:
   m_Text: 'Course Panel:
 
 
-    Lorem ipsum dolor sit amet, consectetur adipiscing
-    elit. Proin et nibh mi. Vestibulum risus quam, mollis eu risus id, ornare mattis
-    urna. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere
-    cubilia curae; Aliquam efficitur lectus ante, non placerat nibh faucibus et.
-    Aenean vel laoreet urna, in lobortis ipsum. Maecenas laoreet, lorem at condimentum
-    commodo, felis urna cursus quam, sit amet vestibulum tellus lectus nec lectus.
-    Sed odio est, suscipit vitae neque auctor, bibendum sagittis ipsum.'
+    Undergraduate Programs
+
+    Bachelor of Science in
+    Computer Science
+
+    Bachelor of Science in Chemical Engineering
+
+    Bachelor
+    of Science in Civil Engineering
+
+    Bachelor of Science in Computer Engineering
+
+    Bachelor
+    of Science in Electrical Engineering
+
+    Bachelor of Science in Electronics
+    and Communications Engineering
+
+    Bachelor of Science in Geodetic Engineering
+
+    Bachelor
+    of Science in Industrial Engineering
+
+    Bachelor of Science in Materials Engineering
+
+    Bachelor
+    of Science in Mechanical Engineering
+
+    Bachelor of Science in Metallurgical
+    Engineering
+
+    Bachelor of Science in Mining Engineering
+
+    Graduate Programs
+
+    Master
+    of Science in Chemical Engineering
+
+    Master of Science in Civil Engineering
+
+    Master
+    of Science in Computer Science
+
+    Master of Engineering in Electrical Engineering
+
+    Master
+    of Science in Electrical Engineering
+
+    Master of Science in Energy Engineering
+
+    Master
+    of Science in Environmental Engineering
+
+    Master of Science in Industrial
+    Engineering
+
+    Master of Science in Materials Science
+
+    Master of Science
+    in Mechanical Engineering
+
+    Master of Science in Metallurgical Engineering
+
+    Master
+    of Science in Remote Sensing
+
+    Master of Science in Water Resources
+
+    Doctor
+    of Engineering in Chemical Engineering
+
+    Doctor of Engineering in Electrical
+    Engineering
+
+    Doctor of Philosophy in Chemical Engineering
+
+    Doctor of
+    Philosophy in Civil Engineering
+
+    Doctor of Philosophy in Electrical Engineering
+
+    Doctor
+    of Philosophy in Energy Engineering
+
+    Doctor of Philosophy in Environmental
+    Engineering
+
+    Doctor of Philosophy in Materials Science and Engineering
+
+'
 --- !u!222 &1893473442
 CanvasRenderer:
   m_ObjectHideFlags: 0

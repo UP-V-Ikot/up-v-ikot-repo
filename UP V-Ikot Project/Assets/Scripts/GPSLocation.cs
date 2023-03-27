@@ -34,6 +34,7 @@ public class GPSLocation : MonoBehaviour
     { 
         panelStatus.text = "Inactive";
         StartCoroutine(GPSLoc());
+        SceneManager.LoadScene("ZoomableMap", LoadSceneMode.Additive);
     }
 
     public void LoadMarkerlessARScene() {

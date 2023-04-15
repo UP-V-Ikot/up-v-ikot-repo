@@ -696,6 +696,7 @@ GameObject:
   - component: {fileID: 555018384}
   - component: {fileID: 555018383}
   - component: {fileID: 555018386}
+  - component: {fileID: 555018385}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -847,6 +848,30 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &555018385
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 555018382}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14eaaabbbed102d498e45aec5522d14d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  POIPreview: {fileID: 0}
+  BackButton: {fileID: 0}
+  MelchorName: 
+  OblationName: 
+  MalcolmName: 
+  PalmaName: 
+  QuezonName: 
+  MelchorText: 
+  OblationText: 
+  MalcolmText: 
+  PalmaText: 
+  QuezonText: 
 --- !u!114 &555018386
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1223,6 +1248,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   POIPreview: {fileID: 334303854}
   BackButton: {fileID: 1763144085}
+  MelchorName: 
+  OblationName: 
+  MalcolmName: 
+  PalmaName: 
+  QuezonName: 
+  MelchorText: 
+  OblationText: 
+  MalcolmText: 
+  PalmaText: 
+  QuezonText: 
 --- !u!114 &1582982805
 MonoBehaviour:
   m_ObjectHideFlags: 0

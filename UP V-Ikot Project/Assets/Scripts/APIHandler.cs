@@ -1,18 +1,21 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 
-public class APIHandler : MonoBehaviour
+namespace APIHandler
 {
-    // Start is called before the first frame update
-    void Start()
+	public class Root
     {
-        
+        public int id { get; set; }
+        public string name { get; set; }
+        public string history { get; set; }
+        public string courses { get; set; }
+        public string offices { get; set; }
+        public double top { get; set; }
+        public double bottom { get; set; }
+        public double left { get; set; }
+        public double right { get; set; }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

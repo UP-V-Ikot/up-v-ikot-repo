@@ -14,7 +14,6 @@ public class oblationPreview : MonoBehaviour
 
 	void Start(){
 		PreviewPull = GameObject.Find("CanvasMap").GetComponent<PreviewPull>();
-		//ChangeTitle = GameObject.Find("Info").GetComponent<ChangeTitle>();
 		
 	}
 

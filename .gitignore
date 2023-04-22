@@ -13,6 +13,9 @@
 # Ignore vuforia package
 com.ptc.vuforia.engine-10.11.3.tgz
 
+#Ignore all .fbx files
+*.fbx
+
 # Asset meta data should only be ignored when the corresponding asset is also ignored
 !/[Aa]ssets/**/*.meta
 

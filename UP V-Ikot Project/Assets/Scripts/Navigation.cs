@@ -12,8 +12,4 @@ public class Navigation : MonoBehaviour
         }
         activePanel.SetActive(true);
     }
-
-    public void BackButtonClick(GameObject MarkerlessARPanel) {
-        MarkerlessARPanel.SetActive(false);
-    }
 }

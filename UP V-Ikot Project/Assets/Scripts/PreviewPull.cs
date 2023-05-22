@@ -8,11 +8,16 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine;
 using APIHandler;
+using Mapbox.Utils;
+
+using Mapbox.Unity.Map;
+using Mapbox.Unity.MeshGeneration.Factories;
 
 public class PreviewPull : MonoBehaviour
 {
     [SerializeField] private GameObject POIPreview;
     [SerializeField] private GameObject BackButton;
+    [SerializeField] private GameObject PathfindingButton;
 
     //POI Names
     public static string MalcolmName;
@@ -109,5 +114,65 @@ public class PreviewPull : MonoBehaviour
     public void DisplayPOIPreview(){
     	POIPreview.SetActive(true);
     	BackButton.SetActive(true);
+        PathfindingButton.SetActive(true);
+    }
+
+    public void PathfindingButtonPress(){
+        GameObject poiNameObject = POIPreview.transform.Find("Info/POIName").gameObject;
+        Text poiNameText = poiNameObject.GetComponent<Text>();
+        string currentPOIName = poiNameText.text;
+        DirectionsFactory directionsFactory = FindObjectOfType<DirectionsFactory>();
+
+        switch (currentPOIName)
+        {
+            case "Malcolm Hall":
+                // Perform actions specific to the Malcolm POI
+                //directionsFactory.UserCoordinates = new Vector2d(InitializeMapWithLocationProvider.UserX, InitializeMapWithLocationProvider.UserY);
+                directionsFactory.POICoordinates = new Vector2d(14.65656849408133, 121.0722047111721);
+                Debug.Log(directionsFactory.UserCoordinates);
+                directionsFactory.QueryStart(); // Call the QueryStart method to Querystart the route QueryStart
+                break;
+
+            case "Melchor Hall":
+                // Perform actions specific to the Melchor POI
+                //directionsFactory.UserCoordinates = new Vector2d(InitializeMapWithLocationProvider.UserX, InitializeMapWithLocationProvider.UserY);
+                directionsFactory.POICoordinates = new Vector2d(14.656347160879033, 121.06964561586334);
+                Debug.Log(directionsFactory.UserCoordinates);
+                directionsFactory.QueryStart(); // Call the QueryStart method to Querystart the route QueryStart
+                break;
+
+            case "Oblation Statue":
+                // Perform actions specific to the Oblation POI
+                //directionsFactory.UserCoordinates = new Vector2d(InitializeMapWithLocationProvider.UserX, InitializeMapWithLocationProvider.UserY);
+                directionsFactory.POICoordinates = new Vector2d(14.654978738982104, 121.0648535986959);
+                Debug.Log(directionsFactory.UserCoordinates);
+                directionsFactory.QueryStart();
+                
+                break;
+
+            case "Palma Hall":
+                // Perform actions specific to the Palma POI
+                //directionsFactory.UserCoordinates = new Vector2d(InitializeMapWithLocationProvider.UserX, InitializeMapWithLocationProvider.UserY);
+                directionsFactory.POICoordinates = new Vector2d(14.65374873005025, 121.06986664713098);
+                Debug.Log(directionsFactory.UserCoordinates);
+                directionsFactory.QueryStart();
+                
+                break;
+
+            case "Quezon Hall":
+                // Perform actions specific to the Quezon POI
+                //directionsFactory.UserCoordinates = new Vector2d(InitializeMapWithLocationProvider.UserX, InitializeMapWithLocationProvider.UserY);
+                directionsFactory.POICoordinates = new Vector2d(14.655015068254652, 121.06516473492371);
+                Debug.Log(directionsFactory.UserCoordinates);
+                directionsFactory.QueryStart();
+                
+                break;
+
+            default:
+                // Handle any other cases or provide a fallback action
+                Debug.Log("Unknown POI selected");
+                break;
+        }
+        Debug.Log("Current POI Name: " + currentPOIName);
     }
 }

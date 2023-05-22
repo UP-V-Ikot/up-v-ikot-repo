@@ -30,9 +30,6 @@ public class quezonPreview : MonoBehaviour
     	GameObject.Find("CanvasMap/POIPreview/Info/POIImage").GetComponent<Image>().sprite = newSprite;
 
         quezonPreviewTitle.text = PreviewPull.QuezonName.ToString();
-        quezonPreviewText.text = PreviewPull.QuezonText.ToString();
-
-
-        
+        quezonPreviewText.text = PreviewPull.QuezonText.ToString(); 
     }
 }

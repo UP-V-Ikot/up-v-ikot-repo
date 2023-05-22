@@ -57,10 +57,27 @@
 
 		void ForwardGeocoder_OnGeocoderResponse(ForwardGeocodeResponse response)
 		{
+
+			float minLat = 14.646926951459918f; // Set the minimum latitude here.
+			float maxLat = 14.663119425420888f; // Set the maximum latitude here.
+			float minLon = 121.05908765935553f; // Set the minimum longitude here.
+			float maxLon = 121.07378616381652f; // Set the maximum longitude here.
+
 			if (null != response.Features && response.Features.Count > 0)
 			{
-				int zoom = _map.AbsoluteZoom;
-				_map.UpdateMap(response.Features[0].Center, zoom);
+				
+				var center = response.Features[0].Center;
+
+				double lat = center.x;
+		        double lon = center.y;
+		        Debug.Log("Search result: latitude=" + lat + ", longitude=" + lon);
+
+		        if(center.x < minLat || center.x > maxLat || center.y < minLon || center.y > maxLon) {
+		            Debug.Log("Search result is outside the specified area.");
+		            return;
+		        }
+		        int zoom = _map.AbsoluteZoom;
+		        _map.UpdateMap(center, zoom);
 			}
 		}
 

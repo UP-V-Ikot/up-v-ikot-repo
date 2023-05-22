@@ -10,7 +10,6 @@ namespace Mapbox.Unity.Location
 	using System.Linq;
 
 
-
 	/// <summary>
 	/// The DeviceLocationProvider is responsible for providing real world location and heading data,
 	/// served directly from native hardware and OS. 
@@ -152,7 +151,8 @@ namespace Mapbox.Unity.Location
 					}
 				}
 
-				Debug.LogWarning("Remote device not connected via 'Unity Remote'. Waiting ..." + Environment.NewLine + "If Unity seems to be stuck here make sure 'Unity Remote' is running and restart Unity with your device already connected.");
+				//Debug.LogWarning("Remote device not connected via 'Unity Remote'. Waiting ..." + Environment.NewLine + "If Unity seems to be stuck here make sure 'Unity Remote' is running and restart Unity with your device already connected.");
+				Debug.Log("Latitude: " + _currentLocation.LatitudeLongitude.x + ", Longitude: " + _currentLocation.LatitudeLongitude.y);
 				yield return _wait1sec;
 			}
 #endif
@@ -189,6 +189,8 @@ namespace Mapbox.Unity.Location
 				maxWait--;
 			}
 
+			//BELOW IS COMMENTED OUT FOR DEBUGGING PURPOSES (UP V-IKOT)
+			
 			if (maxWait < 1)
 			{
 				Debug.LogError("DeviceLocationProvider: " + "Timed out trying to initialize location services!");
@@ -206,6 +208,7 @@ namespace Mapbox.Unity.Location
 				SendLocation(_currentLocation);
 				yield break;
 			}
+			
 
 			_currentLocation.IsLocationServiceInitializing = false;
 			_currentLocation.IsLocationServiceEnabled = true;
@@ -221,6 +224,7 @@ namespace Mapbox.Unity.Location
 			while (true)
 			{
 
+
 				var lastData = _locationService.lastData;
 				var timestamp = lastData.timestamp;
 
@@ -230,7 +234,7 @@ namespace Mapbox.Unity.Location
 				// Input.location.status != LocationServiceStatus.Running
 				// nevertheless new location is available
 				//////////////////////////////
-				//Debug.LogFormat("Input.location.status: {0}", Input.location.status);
+				Debug.LogFormat("Input.location.status: {0}", Input.location.status);
 				_currentLocation.IsLocationServiceEnabled =
 					_locationService.status == LocationServiceStatus.Running
 					|| timestamp > _lastLocationTimestamp;
@@ -266,6 +270,10 @@ namespace Mapbox.Unity.Location
 
 				if (_currentLocation.IsLocationUpdated)
 				{
+
+					Debug.Log("Current Latitude: " + _currentLocation.LatitudeLongitude.x);
+		            Debug.Log("Current Longitude: " + _currentLocation.LatitudeLongitude.y);
+
 					if (_lastPositions.Count > 0)
 					{
 						// only add position if user has moved +1m since we added the previous position to the list

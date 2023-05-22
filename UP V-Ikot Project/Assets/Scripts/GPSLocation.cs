@@ -84,6 +84,9 @@ public class GPSLocation : MonoBehaviour
             LocationController.latitude = Input.location.lastData.latitude;
             LocationController.longitude = Input.location.lastData.longitude;
 
+            Debug.Log(LocationController.latitude);
+            Debug.Log(LocationController.longitude);
+
             foreach(Tuple<double, double, double, double, string> coordinate in coordinates) {
                 if ((LocationController.latitude < coordinate.Item1 && LocationController.latitude > coordinate.Item2) && 
                 (LocationController.longitude > coordinate.Item3 && LocationController.longitude < coordinate.Item4)) 

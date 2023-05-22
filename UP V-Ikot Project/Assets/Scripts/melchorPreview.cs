@@ -23,7 +23,7 @@ public class melchorPreview : MonoBehaviour
     	Debug.Log("clicked!");
     	PreviewPull.DisplayPOIPreview();
     	Text melchorPreviewTitle = GameObject.Find("CanvasMap/POIPreview/Info/POIName").GetComponent<Text>();
-    	melchorPreviewTitle.text = "Melchor Hall";
+    	melchorPreviewTitle.text = PreviewPull.MelchorName;
 
         GameObject.Find("CanvasMap/POIPreview/Info/POIImage").GetComponent<Image>().sprite = newSprite;
     	

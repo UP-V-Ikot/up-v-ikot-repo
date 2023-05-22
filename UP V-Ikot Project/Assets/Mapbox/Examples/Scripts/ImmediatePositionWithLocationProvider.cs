@@ -3,9 +3,14 @@
 	using Mapbox.Unity.Location;
 	using Mapbox.Unity.Map;
 	using UnityEngine;
+	using Mapbox.Utils;
+	using Mapbox.Unity.MeshGeneration.Factories;
 
 	public class ImmediatePositionWithLocationProvider : MonoBehaviour
 	{
+
+		public static double UserX;
+		public static double UserY;
 
 		bool _isInitialized;
 
@@ -36,6 +41,13 @@
 			{
 				var map = LocationProviderFactory.Instance.mapManager;
 				transform.localPosition = map.GeoToWorldPosition(LocationProvider.CurrentLocation.LatitudeLongitude);
+
+				DirectionsFactory directionsFactory = FindObjectOfType<DirectionsFactory>();
+				UserX = LocationProvider.CurrentLocation.LatitudeLongitude.x;
+		    	UserY = LocationProvider.CurrentLocation.LatitudeLongitude.y;
+
+		    	directionsFactory.UserCoordinates = new Vector2d(UserX, UserY);
+
 			}
 		}
 	}

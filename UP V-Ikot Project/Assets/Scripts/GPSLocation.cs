@@ -7,18 +7,10 @@ using UnityEngine.SceneManagement;
 
 public class GPSLocation : MonoBehaviour
 {   
-
-    public Text GPSStatus;
-    public Text latitudeValue;
-    public Text longitudeValue;
-    public Text panelStatus;
     public Text poiName;
 
     public GameObject arPanel;
     public GameObject minimizedArPanel;
-    // Coords hardcoded for now; set to your location area to test
-    // Ryo Home Coordinates:
-    // Top = 14.63462; Bottom = 14.63416; Left = 121.07305; Right = 121.07340
 
     // Tuple Items: Top, Bottom, Left, Right, POIName
     public Tuple<double, double, double, double, string>[] coordinates = {
@@ -32,7 +24,6 @@ public class GPSLocation : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-        panelStatus.text = "Inactive";
         StartCoroutine(GPSLoc());
         SceneManager.LoadScene("ZoomableMap", LoadSceneMode.Additive);
     }
@@ -64,16 +55,13 @@ public class GPSLocation : MonoBehaviour
         }
 
         if (maxWait < 1) {
-            GPSStatus.text = "Time Out";
             yield break;
         }
         
         if (Input.location.status == LocationServiceStatus.Failed) {
-            GPSStatus.text = "Unable to determine device location";
             yield break;
         }
         else {
-            GPSStatus.text = "Running";
             InvokeRepeating("UpdateGPSData", 0.5f, 1f);
         }
     } 
@@ -96,7 +84,6 @@ public class GPSLocation : MonoBehaviour
                         arPanel.SetActive(true);
                     }
                     inBounds = true;
-                    panelStatus.text = "Active";
                     break;
                 }
             }
@@ -109,18 +96,12 @@ public class GPSLocation : MonoBehaviour
                 if (minimizedArPanel.activeSelf) {
                     minimizedArPanel.SetActive(false);
                 }
-                panelStatus.text = "Inactive";
             }
             
 
-            latitudeValue.text = Input.location.lastData.latitude.ToString();
-            longitudeValue.text = Input.location.lastData.longitude.ToString();
-
         }
         else {
-            GPSStatus.text = "Stop";
             arPanel.SetActive(false);
-            panelStatus.text = "Inactive";
         }
     }
 

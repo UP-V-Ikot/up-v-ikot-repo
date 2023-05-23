@@ -166,6 +166,26 @@
 			{
 				UseMeterConversion();
 			}
+
+			float MIN_LATITUDE = 14.646926951459918f; // Set the minimum latitude here.
+			float MAX_LATITUDE = 14.663119425420888f; // Set the maximum latitude here.
+			float MIN_LONGITUDE = 121.05908765935553f; // Set the minimum longitude here.
+			float MAX_LONGITUDE = 121.07378616381652f; // Set the maximum longitude here.
+
+			Vector3 touchPosition = Input.GetMouseButton(0) ? Input.mousePosition : (Input.touchCount > 0 ? (Vector3)Input.GetTouch(0).position : Vector3.zero);
+	        // Convert touch position to world position in meters
+	        Vector3 worldPosition = _referenceCamera.ScreenToWorldPoint(touchPosition);
+	        worldPosition.y = 0f;
+
+	        // Convert world position to latitude and longitude
+	        Vector2d latitudeLongitude = _mapManager.WorldToGeoPosition(worldPosition);
+
+	        // Apply minimum and maximum values to latitude and longitude
+	        latitudeLongitude.x = Mathf.Clamp((float)latitudeLongitude.x, MIN_LATITUDE, MAX_LATITUDE);
+	        latitudeLongitude.y = Mathf.Clamp((float)latitudeLongitude.y, MIN_LONGITUDE, MAX_LONGITUDE);
+
+	        // Update map
+	        _mapManager.UpdateMap(latitudeLongitude, _mapManager.Zoom);
 		}
 
 		void UseMeterConversion()

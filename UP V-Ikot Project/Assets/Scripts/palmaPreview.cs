@@ -22,10 +22,11 @@ public class palmaPreview : MonoBehaviour
     	Debug.Log("clicked!");
     	PreviewPull.DisplayPOIPreview();
     	Text palmaPreviewTitle = GameObject.Find("CanvasMap/POIPreview/Info/POIName").GetComponent<Text>();
-    	palmaPreviewTitle.text = "Palma Hall";
+    	Text palmaPreviewText = GameObject.Find("CanvasMap/POIPreview/Info/POIText").GetComponent<Text>();
 
         GameObject.Find("CanvasMap/POIPreview/Info/POIImage").GetComponent<Image>().sprite = newSprite;
     	
-    	
+        palmaPreviewTitle.text = PreviewPull.PalmaName.ToString(); 
+        palmaPreviewText.text = PreviewPull.PalmaText.ToString();     	
     }
 }

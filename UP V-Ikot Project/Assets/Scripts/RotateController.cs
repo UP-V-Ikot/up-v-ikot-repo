@@ -12,30 +12,6 @@ public class RotateController : MonoBehaviour
     // Update is called once per frame
     void Update() {
 
-        // foreach (Touch touch in Input.touches) {
-        //     Debug.Log("Touching at: " + touch.position);
-        //     Ray camRay = cam.ScreenPointToRay(touch.position);
-        //     RaycastHit raycastHit;
-
-        //     if(Physics.Raycast(camRay, out raycastHit, 10)) {
-        //         switch (touch.phase) {
-        //             case TouchPhase.Began:
-        //                 Debug.Log("Touch phase began at: " + touch.position);
-        //                 break;
-        //             case TouchPhase.Moved:
-        //                 Debug.Log("Touch phase moved");
-        //                 transform.Rotate(touch.deltaPosition.y * rotateSpeed, 
-        //                     -touch.deltaPosition.x * rotateSpeed, 0, Space.World);
-        //                 break;
-        //             case TouchPhase.Ended:
-        //                 Debug.Log("Touch phase Ended");
-        //                 break;
-        //         }   
-
-        //     }
-
-        // }
-
 
         if (Input.touchCount == 1) {
             Touch touch = Input.GetTouch(0);

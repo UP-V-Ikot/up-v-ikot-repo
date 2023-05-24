@@ -1,22 +1,22 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Vuforia;
 
-public class VButton : MonoBehaviour
+public class ARMarker : MonoBehaviour
 {   
     [SerializeField] GameObject[] floors;
-    public VirtualButtonBehaviour upVb;
+    public GameObject nextFloorBtn;
     public int currentFloorIndex = 1;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        upVb.RegisterOnButtonPressed(UpButtonPressed);
+    public void ShowNextFloorButton() {
+        nextFloorBtn.SetActive(true);
     }
 
-    public void UpButtonPressed(VirtualButtonBehaviour upVb) {
+    public void HideNextFloorButton() {
+        nextFloorBtn.SetActive(false);
+    }
+
+    public void NextFloorButtonClick() {
         foreach (GameObject floor in floors) {
             floor.SetActive(false);
         }

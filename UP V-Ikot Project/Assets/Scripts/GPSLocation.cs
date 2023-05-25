@@ -83,6 +83,7 @@ public class GPSLocation : MonoBehaviour
                     if (!minimizedArPanel.activeSelf) {
                         arPanel.SetActive(true);
                     }
+                    poiName.text = LocationController.poiName;
                     inBounds = true;
                     break;
                 }

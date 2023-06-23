@@ -10,9 +10,11 @@ Official repository for UP V-Ikot's CS 199 Project and Sprint development.
 3. Install the [Vuforia SDK package](https://library.vuforia.com/getting-started/getting-started-vuforia-engine-unity) and follow the steps to activate Vuforia for Unity.
 
 ![image](https://github.com/UP-V-Ikot/up-v-ikot-repo/assets/99495442/b2d2a3c5-ab0c-4e56-a461-21ebefc26367)
+4. Install the [Mapbox Maps SDK for Unity](https://docs.mapbox.com/unity/maps/guides/) and follow the steps to add the Mapbox package for Unity.
 
-4. Download the 3D models and place the `.fbx` and its associated materials folder into the corresponding `Models` subdirectory (either `Buildings-exterior` or `Buildings-interior`) depending on the type of 3D model.
-5. In the editor, click on the `.fbx` file and in the inspector window, set `Location` to `Use External Materials (Legacy)`. Click on `Apply` and the proper textures should apply to the 3D models.
+![image](https://github.com/UP-V-Ikot/up-v-ikot-repo/assets/91612199/8b3229a1-6e17-4e8e-81c1-0ba770874233)
+5. Download the 3D models and place the `.fbx` and its associated materials folder into the corresponding `Models` subdirectory (either `Buildings-exterior` or `Buildings-interior`) depending on the type of 3D model.
+6. In the editor, click on the `.fbx` file and in the inspector window, set `Location` to `Use External Materials (Legacy)`. Click on `Apply` and the proper textures should apply to the 3D models.
 
 ![image](https://github.com/UP-V-Ikot/up-v-ikot-repo/assets/99495442/c49a2356-2853-4280-963e-8fc13d4bea50)
 

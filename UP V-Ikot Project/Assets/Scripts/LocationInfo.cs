@@ -6,9 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class LocationInfo : MonoBehaviour
-{   
-    public Text longitudeVal;
-    public Text latitudeVal;
+{  
     public Text poiVal;
 
     public GameObject MalcolmObject;
@@ -96,9 +94,7 @@ public class LocationInfo : MonoBehaviour
             if (!inBounds) {
                 SceneManager.LoadScene("GPSLocation");
             }
-            
-            longitudeVal.text = LocationController.longitude.ToString();
-            latitudeVal.text = LocationController.latitude.ToString();
+    
             poiVal.text = LocationController.poiName;
 
         }
